@@ -28,6 +28,14 @@ Clone the repository as a bare repository
 git clone --separate-git-dir=$HOME/.dotfiles git@github.com:mihaicaragheorghe/dotfiles.git ~
 ```
 
+If fails:
+
+``` bash
+git clone --separate-git-dir=$HOME/.dotfiles git@github.com:mihaicaragheorghe/dotfiles.git tmpdotfiles
+rsync --recursive --verbose --exclude '.git' tmpdotfiles/ $HOME/
+rm -r tmpdotfiles
+```
+
 # Add files
 
 ``` bash
@@ -37,3 +45,4 @@ dotfiles commit -m "Add. tmux"
 
 dotfiles push
 ```
+
