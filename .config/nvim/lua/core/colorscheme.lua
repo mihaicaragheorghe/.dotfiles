@@ -1,4 +1,4 @@
-local colorscheme = "tokyonight-night"
+local colorscheme = "nordic"
 
 local status = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status then

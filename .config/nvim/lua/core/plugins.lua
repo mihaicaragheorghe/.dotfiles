@@ -45,8 +45,10 @@ return packer.startup(function(use)
 	use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
 	use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 	use "tpope/vim-surround" -- surroundings
-    use "ellisonleao/gruvbox.nvim"
-    use "folke/tokyonight.nvim"
+
+    -- colorschemes
+    use "bluz71/vim-moonfly-colors"
+    use "AlexvZyl/nordic.nvim"
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()

@@ -74,7 +74,6 @@ plugins=(
   git
   zsh-syntax-highlighting
   zsh-vi-mode
-  ssh-agent
 )
 
 source $ZSH/oh-my-zsh.sh

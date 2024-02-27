@@ -5,8 +5,8 @@ vim.g.mapleader = " "
 -- Normal --
 -- General
 keymap.set("n", "#", "o<ESC>k") -- # for empty line below
-keymap.set("n", "<C-u>", "<C-u>zz") -- Ctrl + u will also center cursor
 keymap.set("i", "jj", "<ESC>:set rnu<CR>") -- jj instead of ESC
+keymap.set("n", "<C-u>", "<C-u>zz") -- Ctrl + u will also center cursor
 keymap.set("n", "<C-d>", "<C-d>zz") -- Ctrl + d will also center cursor
 
 -- Window navigation
