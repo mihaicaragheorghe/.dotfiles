@@ -12,6 +12,9 @@ opt.smartcase = true -- mixed case - use case-sensitive
 opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
 opt.scrolloff = 8 -- number of lines above and below the cursor when scrolling
+opt.clipboard:append("unnamedplus") -- use system clipboard
+opt.cursorline = true -- cursor line
+opt.backspace = "indent,eol,start"
 
 -- persistent undo
 opt.undodir = vim.fn.stdpath("config") .. "/undo"

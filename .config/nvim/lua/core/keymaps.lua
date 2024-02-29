@@ -6,14 +6,10 @@ vim.g.mapleader = " "
 -- General
 keymap.set("n", "#", "o<ESC>k") -- # for empty line below
 keymap.set("i", "jj", "<ESC>:set rnu<CR>") -- jj instead of ESC
+keymap.set("n", "x", '"_x') -- x will register into the black hole register
+keymap.set("n", "<leader>d", '"_d') -- leader + d will register into black hole register
 keymap.set("n", "<C-u>", "<C-u>zz") -- Ctrl + u will also center cursor
 keymap.set("n", "<C-d>", "<C-d>zz") -- Ctrl + d will also center cursor
-
--- Window navigation
-keymap.set("n", "<C-l>", "<C-w>l") -- CTRL + l to move to right window
-keymap.set("n", "<C-k>", "<C-w>k") -- CTRL + k to move to above window
-keymap.set("n", "<C-j>", "<C-w>j") -- CTRL + j to move to below window
-keymap.set("n", "<C-h>", "<C-w>h") -- CTRL + h to move to left window
 
 -- Buffer navigation
 keymap.set("n", ")", ":bn<CR>") -- ) for next buffer
@@ -31,6 +27,12 @@ keymap.set("n", "<C-Up>", ":resize -2<CR>")
 keymap.set("n", "<C-Down>", ":resize +2<CR>")
 keymap.set("n", "<C-Left>", ":vertical resize -2<CR>")
 keymap.set("n", "<C-Right>", ":vertical resize +2<CR>")
+
+-- Tabs
+keymap.set("n", "<leader>t", ":tabnew<CR>") -- open new tab
+keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close tab 
+keymap.set("n", "<leader>tn", ":tabn<CR>") -- go to next 
+keymap.set("n", "<leader>tp", ":tabp<CR>") -- go to previous 
 
 -- Visual --
 -- General
@@ -54,3 +56,8 @@ keymap.set("x", "<A-j>", ":m '>+1<CR>gv=gv")
 keymap.set("x", "<A-k>", ":m '<-2<CR>gv=gv") 
 keymap.set("x", "<A-Down>", ":m '>+1<CR>gv=gv")
 keymap.set("x", "<A-Up>", ":m '<-2<CR>gv=gv") 
+
+-- Plugins
+
+-- vim-maximizer
+keymap.set("n", "<C-m>", ":MaximizerToggle<CR>") -- toggle split window maximization
