@@ -60,6 +60,13 @@ keymap.set("x", "<A-Up>", ":m '<-2<CR>gv=gv")
 
 -- Plugins
 
+-- telescope
+keymap.set("n", "<C-p>", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
+keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you typ
+keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
+keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
+keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
+
 -- vim-maximizer
 keymap.set("n", "<C-m>", ":MaximizerToggle<CR>") -- toggle split window maximization
 

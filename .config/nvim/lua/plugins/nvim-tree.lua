@@ -1,5 +1,6 @@
 local success, nvimtree = pcall(require, "nvim-tree")
 if not success then
+    vim.notify("Could not load nvim-tree")
     return
 end
 
@@ -12,7 +13,6 @@ nvimtree.setup({
     renderer = {
         icons = {
             show = {
-                folder = false,
                 git = true
             },
             glyphs = {
