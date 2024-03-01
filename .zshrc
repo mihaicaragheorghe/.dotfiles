@@ -73,7 +73,6 @@ ZSH_THEME="robbyrussell"
 plugins=(
   git
   zsh-syntax-highlighting
-  zsh-vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh

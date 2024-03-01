@@ -6,6 +6,7 @@ vim.g.mapleader = " "
 -- General
 keymap.set("n", "#", "o<ESC>k") -- # for empty line below
 keymap.set("i", "jj", "<ESC>:set rnu<CR>") -- jj instead of ESC
+keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>') -- Esc will clear highlighted text
 keymap.set("n", "x", '"_x') -- x will register into the black hole register
 keymap.set("n", "<leader>d", '"_d') -- leader + d will register into black hole register
 keymap.set("n", "<C-u>", "<C-u>zz") -- Ctrl + u will also center cursor
@@ -61,3 +62,6 @@ keymap.set("x", "<A-Up>", ":m '<-2<CR>gv=gv")
 
 -- vim-maximizer
 keymap.set("n", "<C-m>", ":MaximizerToggle<CR>") -- toggle split window maximization
+
+-- nvim-tree
+keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>") -- toggle file explorer

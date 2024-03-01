@@ -1,7 +1,7 @@
 local colorscheme = "moonfly"
 
-local status_ok = pcall(vim.cmd, "colorscheme " .. colorscheme)
-if not status_ok then
+local success = pcall(vim.cmd, "colorscheme " .. colorscheme)
+if not success then
     vim.notify("colorscheme " .. colorscheme .. " not found!")
     return
 end
