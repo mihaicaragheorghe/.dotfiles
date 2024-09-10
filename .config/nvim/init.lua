@@ -1,1 +1,2 @@
-require('mcaragheorghe')
+require("config")
+require("plugins")
