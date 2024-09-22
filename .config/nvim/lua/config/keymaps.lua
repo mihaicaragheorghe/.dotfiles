@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>p", vim.cmd.Ex)
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmuxs<CR>")
 
 -- Use J and K to move visual blocks up and down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
