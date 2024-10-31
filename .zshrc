@@ -100,10 +100,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-if [ -x "$(command -v nvim)" ]; then
-    alias vim=nvim
-fi
-
 export PATH="$HOME/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
