@@ -5,6 +5,7 @@ set encoding=utf8
 
 set number
 set relativenumber
+set clipboard+=unnamed
 
 set tabstop=4
 set shiftwidth=4
@@ -20,7 +21,6 @@ set cursorline
 hi cursorline cterm=none ctermbg=235
 
 set backspace=eol,start,indent
-set clipboard+=unnamed
 
 set hlsearch
 set incsearch
