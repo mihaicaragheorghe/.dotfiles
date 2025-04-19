@@ -33,6 +33,9 @@ vim.opt.termguicolors = true
 vim.g.have_nerd_font = true
 vim.opt.background = "dark"
 
+vim.opt.signcolumn = 'yes'
+vim.opt.confirm = true
+
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
