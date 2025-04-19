@@ -19,10 +19,10 @@ if tmux has-session -t="$session_name" 2>/dev/null; then
     tmux kill-session -t "$session_name"
 fi
 
-tmux new-session -d -s "$session_name" -c "$project_path" -n "code"
+tmux new-session -d -s "$session_name" -c "$project_path" -n "editor"
 tmux new-window -d -t $session_name -n "server" -c "$project_path"
 tmux new-window -d -t $session_name -n "console" -c "$project_path"
-tmux send-keys -t $session_name:code "vim ." C-m
+tmux send-keys -t $session_name:editor "vim ." C-m
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
     tmux attach-session -t "$session_name"
