@@ -20,8 +20,6 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set("n", "x", [["_x]])
 
 vim.keymap.set("n", "Q", "<nop>")
-
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>")
 
 -- Clear highlights on pressing <Esc> in normal mode
