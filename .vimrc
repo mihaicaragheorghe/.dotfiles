@@ -48,11 +48,13 @@ set tm=500
 
 let mapleader = " "
 
-nnoremap <leader>e :Ex<CR>
+nnoremap <leader>p :Ex<CR>
 nnoremap <leader>x :!chmod +x %<CR>
 
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+vnoremap < <gv^
+vnoremap > >gv^
 
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
@@ -64,6 +66,11 @@ nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 nnoremap <leader>D "_D
 nnoremap x "_x
+
+nnoremap <C-j> :cnext<CR>
+nnoremap <C-k> :cprev<CR>
+nnoremap <leader>j :lnext<CR>
+nnoremap <leader>k :lprev<CR>
 
 nnoremap Q <nop>
 nnoremap <Esc> :nohlsearch<CR>
