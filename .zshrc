@@ -10,3 +10,7 @@ source $ZSH/oh-my-zsh.sh
 
 bindkey -v
 
+if [ -x "$(command -v nvim)" ]; then
+    alias vim=nvim
+fi
+
