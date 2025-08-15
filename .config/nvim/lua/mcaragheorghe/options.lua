@@ -24,7 +24,7 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 vim.opt.undofile = true
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undo"
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/neovim/undo"
 
 -- Preview substitutions live
 vim.opt.inccommand = "split"
