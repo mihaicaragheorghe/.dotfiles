@@ -12,7 +12,6 @@ if [[ -z $project_path ]]; then
 fi
 
 session_name=$(basename "$project_path" | tr . _)
-tmux_running=$(pgrep tmux)
 
 # Kill existing session if exists
 if tmux has-session -t="$session_name" 2>/dev/null; then
@@ -24,7 +23,7 @@ tmux new-window -d -t $session_name -n "run" -c "$project_path"
 tmux new-window -d -t $session_name -n "cmd" -c "$project_path"
 tmux send-keys -t $session_name:src "vim ." C-m
 
-if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+if [[ -z $TMUX ]]; then
     tmux attach-session -t "$session_name"
 else
     tmux switch-client -t "$session_name"
