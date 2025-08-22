@@ -26,13 +26,13 @@ vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lprev<CR>zz")
-vim.keymap.set("n", "<Tab>", "<cmd>bnext<CR>")
-vim.keymap.set("n", "<S-Tab>", "<cmd>bprev<CR>")
+vim.keymap.set("n", "<C-S-N>", "<cmd>bnext<CR>")
+vim.keymap.set("n", "<C-S-P>", "<cmd>bprev<CR>")
 vim.keymap.set("n", "<leader>w", "<cmd>bd<CR>")
 
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>")
-vim.keymap.set("n", "<leader>a", "<cmd>!git add %<CR>")
+vim.keymap.set("n", "<leader>ga", "<cmd>!git add %<CR>")
 
 -- Clear highlights on pressing <Esc> in normal mode
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
