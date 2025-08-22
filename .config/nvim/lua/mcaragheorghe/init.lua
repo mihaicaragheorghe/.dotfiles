@@ -16,7 +16,7 @@ autocmd("TextYankPost", {
 })
 
 autocmd('LspAttach', {
-    group = mcaragheorghe,
+    group = augroup('mcaragheorghe_LspAttach', {}),
     callback = function(e)
         local opts = { buffer = e.buf }
         vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
