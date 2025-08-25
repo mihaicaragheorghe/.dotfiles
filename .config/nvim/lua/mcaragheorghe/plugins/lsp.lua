@@ -76,14 +76,15 @@ return {
         })
 
         vim.diagnostic.config({
+            severity_sort = true,
             float = {
-                focusable = false,
+                focusable = true,
                 style = "minimal",
                 border = "rounded",
                 source = true,
-                header = "",
-                prefix = "",
             },
+            underline = { severity = vim.diagnostic.severity.ERROR },
+            virtual_text = true
         })
     end
 }
