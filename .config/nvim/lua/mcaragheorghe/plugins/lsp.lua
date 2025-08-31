@@ -1,8 +1,8 @@
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
+        "mason-org/mason.nvim",
+        "mason-org/mason-lspconfig.nvim",
         "stevearc/conform.nvim",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
@@ -26,9 +26,10 @@ return {
     config = function()
         require("conform").setup({
             formatters_by_ft = {
+                lua = { "stylua" },
             }
         })
-        local cmp = require('cmp')
+        local cmp = require("cmp")
         local cmp_lsp = require("cmp_nvim_lsp")
         local capabilities = vim.tbl_deep_extend(
             "force",
@@ -80,7 +81,6 @@ return {
             severity_sort = true,
             float = {
                 focusable = true,
-                style = "minimal",
                 border = "rounded",
                 source = true,
             },

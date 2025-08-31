@@ -1,3 +1,8 @@
+vim.g.have_nerd_font = true
+
+vim.opt.mouse = 'a'
+vim.opt.showmode = true
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.clipboard = "unnamedplus"
@@ -11,6 +16,9 @@ vim.opt.breakindent = true
 
 vim.opt.scrolloff = 10
 vim.opt.wrap = false
+
+vim.opt.updatetime = 250
+vim.opt.timeoutlen = 300
 
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
@@ -30,7 +38,6 @@ vim.opt.undodir = os.getenv("HOME") .. "/.vim/neovim/undo"
 vim.opt.inccommand = "split"
 
 vim.opt.termguicolors = true
-vim.g.have_nerd_font = true
 vim.opt.background = "dark"
 
 vim.opt.signcolumn = 'yes'

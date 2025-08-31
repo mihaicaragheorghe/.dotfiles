@@ -1,4 +1,6 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 vim.keymap.set("n", "<leader>ge", vim.cmd.Ex)
 
 -- Use J and K to move visual blocks up and down

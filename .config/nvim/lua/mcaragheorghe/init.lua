@@ -9,7 +9,7 @@ vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#2a2e36" })
 
 autocmd("TextYankPost", {
     desc = "Highlight when yanking (copying) text",
-    group = augroup("HighlightYank", { clear = true }),
+    group = augroup("mcaragheorghe-highlight-yank", { clear = true }),
     callback = function()
         vim.highlight.on_yank()
     end,
@@ -20,9 +20,10 @@ autocmd('LspAttach', {
     callback = function(e)
         local opts = { buffer = e.buf }
         vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-        vim.keymap.set("n", "<C-Space>", function() vim.lsp.buf.code_action() end, opts)
+        vim.keymap.set("n", "<C-.>", function() vim.lsp.buf.code_action() end, opts)
+        vim.keymap.set("i", "<C-.>", function() vim.lsp.buf.code_action() end, opts)
         vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
-        vim.keymap.set("n", "<leader>fa", function() vim.lsp.buf.format() end, opts)
+        vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format() end, opts)
         vim.keymap.set('n', '<leader>q', function() vim.diagnostic.setloclist() end, opts)
         vim.keymap.set("n", "<leader>e", function() vim.diagnostic.open_float({ focusable = true }) end, opts)
         vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.rename() end, opts)
