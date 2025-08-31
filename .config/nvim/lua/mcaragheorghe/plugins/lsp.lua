@@ -1,49 +1,26 @@
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
-        "mason-org/mason.nvim",
-        "mason-org/mason-lspconfig.nvim",
-        "stevearc/conform.nvim",
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path",
-        "hrsh7th/cmp-cmdline",
-        "hrsh7th/nvim-cmp",
-        "L3MON4D3/LuaSnip",
-        {
-            "folke/lazydev.nvim",
-            ft = "lua", -- only load on lua files
-            opts = {
-                library = {
-                    -- See the configuration section for more details
-                    -- Load luvit types when the `vim.uv` word is found
-                    { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-                },
-            },
-        },
+        -- Automatically install LSPs and related tools to stdpath for Neovim
+        -- Mason must be loaded before its dependents so we need to set it up here.
+        'mason-org/mason.nvim',
+        'mason-org/mason-lspconfig.nvim',
+
+        -- Allows extra capabilities provided by blink.cmp
+        'saghen/blink.cmp',
     },
 
     config = function()
-        require("conform").setup({
-            formatters_by_ft = {
-                lua = { "stylua" },
-            }
-        })
-        local cmp = require("cmp")
-        local cmp_lsp = require("cmp_nvim_lsp")
-        local capabilities = vim.tbl_deep_extend(
-            "force",
-            {},
-            vim.lsp.protocol.make_client_capabilities(),
-            cmp_lsp.default_capabilities())
+        local capabilities = require('blink.cmp').get_lsp_capabilities()
 
         require("mason").setup()
-        require("mason-lspconfig").setup({
+        require('mason-lspconfig').setup({
             ensure_installed = {
                 "lua_ls",
                 "gopls",
                 "omnisharp"
             },
+            automatic_installation = true,
             handlers = {
                 function(server_name) -- default handler (optional)
                     require("lspconfig")[server_name].setup {
@@ -51,30 +28,6 @@ return {
                     }
                 end,
             },
-            automatic_installation = true
-        })
-
-        local cmp_select = { behavior = cmp.SelectBehavior.Select }
-
-        cmp.setup({
-            snippet = {
-                expand = function(args)
-                    require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-                end,
-            },
-            mapping = cmp.mapping.preset.insert({
-                ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-                ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-                ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-                ['<Enter>'] = cmp.mapping.confirm({ select = false }),
-                ["<C-Space>"] = cmp.mapping.complete(),
-            }),
-            sources = cmp.config.sources({
-                { name = 'nvim_lsp' },
-                { name = 'luasnip' }, -- For luasnip users.
-            }, {
-                { name = 'buffer' },
-            })
         })
 
         vim.diagnostic.config({
