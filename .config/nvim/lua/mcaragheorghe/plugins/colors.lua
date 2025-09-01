@@ -6,7 +6,7 @@ return {
         priority = 1000,
         config = function()
             require('tokyonight').setup {
-                style = "night",
+                style = "storm",
                 transparent = true,
                 terminal_colors = true,
                 styles = {
@@ -14,9 +14,24 @@ return {
                     -- Value is any valid attr-list value for `:help nvim_set_hl`
                     comments = { italic = false },
                     keywords = { italic = false },
+                    sidebars = "dark", -- style for sidebars, see below
+                    floats = "dark", -- style for floating windows
                 },
             }
             vim.cmd('colorscheme tokyonight-night')
         end,
-    }
+    },
+    {
+        "rose-pine/neovim",
+        name = "rose-pine",
+        config = function()
+            require("rose-pine").setup({
+                disable_background = true,
+                styles = {
+                    italic = false,
+                },
+            })
+            vim.cmd("colorscheme rose-pine")
+        end
+    },
 }
