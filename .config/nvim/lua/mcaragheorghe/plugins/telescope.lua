@@ -19,13 +19,24 @@ return {
         { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     },
     config = function()
-        require('telescope').setup({})
+        require('telescope').setup {
+            defaults = {
+                file_ignore_patterns = {
+                    ".git/", "node_modules/", "build/", "dist/", "bin/", "obj/"
+                },
+            },
+            pickers = {
+                find_files = {
+                    hidden = true
+                }
+            }
+        }
         pcall(require('telescope').load_extension, 'fzf')
 
         local builtin = require('telescope.builtin')
-        vim.keymap.set('n', '<C-p>', builtin.git_files, {})
-        vim.keymap.set('n', '<leader>fg', builtin.git_files, { desc = '[F]ind [G]it Files' })
+        vim.keymap.set('n', '<C-p>', builtin.find_files, { desc = 'Find Files' })
         vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = '[F]ind [F]iles' })
+        vim.keymap.set('n', '<leader>fg', builtin.git_files, { desc = '[F]ind [G]it Files' })
         vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp' })
         vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = '[F]ind [K]eymaps' })
         vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = '[F]ind [R]esume' })
