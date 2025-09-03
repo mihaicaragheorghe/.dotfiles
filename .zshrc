@@ -11,6 +11,11 @@ fi
 
 plugins=(git)
 
+# Neovim on linux
+if [[ -d "/opt/nvim-linux-x86_64/bin" ]]; then
+    export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+fi
+
 if [[ -x "$(command -v nvim)" ]]; then
     alias vim=nvim
 fi
