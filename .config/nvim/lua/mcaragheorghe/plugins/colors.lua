@@ -1,5 +1,6 @@
 ---@diagnostic disable: missing-fields
 return {
+    { 'shaunsingh/nord.nvim', },
     {
         -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
         'folke/tokyonight.nvim',
@@ -18,7 +19,8 @@ return {
                     floats = "dark",   -- style for floating windows
                 },
             }
-            vim.cmd('colorscheme tokyonight-night')
+            vim.g.nord_disable_background = true
+            vim.cmd('colorscheme nord')
         end,
     },
 }
