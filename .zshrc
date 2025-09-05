@@ -21,4 +21,4 @@ if [[ -x "$(command -v nvim)" ]]; then
 fi
 
 bindkey -v
-
+bindkey -s ^f "session\n"
