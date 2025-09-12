@@ -27,8 +27,8 @@ return {
                     -- Value is any valid attr-list value for `:help nvim_set_hl`
                     comments = { italic = false },
                     keywords = { italic = false },
-                    sidebars = "dark", -- style for sidebars, see below
-                    floats = "dark",   -- style for floating windows
+                    sidebars = 'dark', -- style for sidebars, see below
+                    floats = 'dark',   -- style for floating windows
                 },
             }
         end,
