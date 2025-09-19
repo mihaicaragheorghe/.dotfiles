@@ -5,8 +5,6 @@ require("mcaragheorghe.lazy")
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
-vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#2a2e36" })
-
 autocmd("TextYankPost", {
     desc = "Highlight when yanking (copying) text",
     group = augroup("mcaragheorghe-highlight-yank", { clear = true }),
@@ -23,7 +21,6 @@ autocmd('LspAttach', {
         vim.keymap.set("n", "<C-.>", function() vim.lsp.buf.code_action() end, opts)
         vim.keymap.set("i", "<C-.>", function() vim.lsp.buf.code_action() end, opts)
         vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
-        vim.keymap.set("n", "<leader>fa", function() vim.lsp.buf.format() end, opts)
         vim.keymap.set('n', '<leader>q', function() vim.diagnostic.setloclist() end, opts)
         vim.keymap.set("n", "<leader>e", function() vim.diagnostic.open_float({ focusable = true }) end, opts)
         vim.keymap.set("n", "<leader>r", function() vim.lsp.buf.rename() end, opts)

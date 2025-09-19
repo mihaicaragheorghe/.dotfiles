@@ -17,9 +17,6 @@ vim.opt.breakindent = true
 vim.opt.scrolloff = 10
 vim.opt.wrap = false
 
-vim.opt.updatetime = 250
-vim.opt.timeoutlen = 300
-
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.ignorecase = true
@@ -39,11 +36,8 @@ vim.opt.inccommand = "split"
 
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
-
-vim.opt.signcolumn = 'yes'
-vim.opt.confirm = true
-
 vim.opt.colorcolumn = "120"
+vim.opt.confirm = true
 
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
