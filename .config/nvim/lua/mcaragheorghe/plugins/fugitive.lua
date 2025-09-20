@@ -3,7 +3,7 @@ return {
     config = function()
         vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
         vim.keymap.set("n", "<leader>gd", vim.cmd.Gdiffsplit)
-        vim.keymap.set('n', '<leader>gl', ':Git log --oneline<CR>')
+        vim.keymap.set('n', '<leader>gl', ':Git log<CR>')
 
         local augroup = vim.api.nvim_create_augroup("mcaragheorghe_fugitive", {})
         local autocmd = vim.api.nvim_create_autocmd

@@ -7,7 +7,7 @@ return {
                 -- A list of parser names, or "all" (the listed parsers MUST always be installed)
                 ensure_installed = {
                     "bash", "markdown", "markdown_inline", "lua", "luadoc", "vimdoc",
-                    "c", "javascript", "typescript", "go", "c_sharp"
+                    "c", "cpp", "go", "javascript", "typescript", "c_sharp", "python",
                 },
 
                 -- Install parsers synchronously (only applied to `ensure_installed`)
