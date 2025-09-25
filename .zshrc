@@ -9,8 +9,6 @@ if [[ -d "$HOME/.oh-my-zsh" ]]; then
     source "$ZSH/oh-my-zsh.sh"
 fi
 
-plugins=(git)
-
 # Neovim on linux
 if [[ -d "/opt/nvim-linux-x86_64/bin" ]]; then
     export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
@@ -20,5 +18,15 @@ if [[ -x "$(command -v nvim)" ]]; then
     alias vim=nvim
 fi
 
+# Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
+plugins=(git)
+
 bindkey -v
 bindkey -s ^f "session\n"
+bindkey -s ^n "nvim .\n"
+bindkey -s ^t "tmux\n"
+

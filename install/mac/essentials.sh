@@ -2,9 +2,10 @@
 
 brew update
 brew install git
-brew install vim
 brew install fzf
+brew install vim
 brew install tmux
-brew install stow
-brew install tree
 brew install ripgrep
+brew install stow
+
+brew install --cask ghostty
