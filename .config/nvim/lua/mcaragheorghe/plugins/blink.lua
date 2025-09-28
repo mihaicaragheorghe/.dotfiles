@@ -4,7 +4,6 @@ return {
     event = 'VimEnter',
     version = '1.*',
     dependencies = {
-        'L3MON4D3/LuaSnip', -- Snippet Engine
         'folke/lazydev.nvim',
     },
     --- @module 'blink.cmp'
@@ -49,8 +48,6 @@ return {
                 lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
             },
         },
-
-        snippets = { preset = 'luasnip' },
 
         -- Blink.cmp includes an optional, recommended rust fuzzy matcher,
         -- which automatically downloads a prebuilt binary when enabled.
