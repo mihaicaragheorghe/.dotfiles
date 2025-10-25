@@ -14,10 +14,6 @@ if [[ -d "/opt/nvim-linux-x86_64/bin" ]]; then
     export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 fi
 
-if [[ -x "$(command -v nvim)" ]]; then
-    alias vim=nvim
-fi
-
 # Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
