@@ -1,8 +1,6 @@
 return {
     {
-        dir = '~/Projects/polarnight.nvim',
-        name = 'polarnight',
-        lazy = false,
+        'mihaicaragheorghe/polarnight.nvim',
         priority = 1000,
         config = function()
             require('polarnight').setup {
