@@ -5,6 +5,7 @@ brew install git
 brew install fzf
 brew install vim
 brew install tmux
+brew install neovim
 brew install ripgrep
 brew install stow
 

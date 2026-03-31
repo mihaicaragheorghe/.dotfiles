@@ -1,11 +1,9 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 vim.keymap.set("n", "<leader>ge", vim.cmd.Ex)
 
 -- Use J and K to move visual blocks up and down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
 vim.keymap.set("v", "<", "<gv^")
 vim.keymap.set("v", ">", ">gv^")
 
@@ -16,6 +14,8 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "[m", "[mzz")
 vim.keymap.set("n", "]m", "]mzz")
+vim.keymap.set("n", "[d", "[dzz")
+vim.keymap.set("n", "]d", "]dzz")
 
 vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])

@@ -1,12 +1,15 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
+
+vim.schedule(function() vim.opt.clipboard = 'unnamedplus' end)
 
 vim.opt.mouse = 'a'
 vim.opt.showmode = true
-vim.o.winborder = 'single'
+vim.opt.winborder = 'single'
 
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.clipboard = "unnamedplus"
 
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4

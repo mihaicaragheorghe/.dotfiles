@@ -19,7 +19,7 @@ return { -- Autoformat
             cpp = { "clang-format" },
             javascript = { "prettier" },
             typescript = { "prettier" },
-            python = { "black" },
+            python = { "ruff" },
         },
         formatters = {
             ["clang-format"] = {

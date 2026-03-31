@@ -3,7 +3,7 @@
 if [[ ! -z $1 ]]; then
     project_path=$(realpath $1)
 else
-    project_path=$(find ~/Projects ~/source -mindepth 1 -maxdepth 1 -type d | fzf)
+    project_path=$(find ~/Projects -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $project_path ]]; then
