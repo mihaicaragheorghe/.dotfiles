@@ -1,10 +1,12 @@
 require("plugins.blink")
-require("plugins.colors")
 require("plugins.conform")
 require("plugins.fugitive")
 require("plugins.gitsigns")
 require("plugins.telescope")
 require("plugins.undotree")
+require("plugins.whichkey")
+require("plugins.harpoon")
 
+require("plugins.colors")
 require("plugins.treesitter")
 require("plugins.lsp")

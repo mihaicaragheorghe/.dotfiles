@@ -1,6 +1,4 @@
-local function gh(repo)
-	return "https://github.com/" .. repo
-end
+local function gh(repo) return "https://github.com/" .. repo end
 
 -- [[ Fuzzy Finder (files, lsp, etc) ]]
 --
@@ -28,46 +26,45 @@ end
 
 ---@type (string | vim.pack.Spec)[]
 local telescope_plugins = {
-	gh("nvim-lua/plenary.nvim"),
-	gh("nvim-telescope/telescope.nvim"),
-	gh("nvim-telescope/telescope-ui-select.nvim"),
+  gh("nvim-lua/plenary.nvim"),
+  gh("nvim-telescope/telescope.nvim"),
+  gh("nvim-telescope/telescope-ui-select.nvim"),
 }
-if vim.fn.executable("make") == 1 then
-	table.insert(telescope_plugins, gh("nvim-telescope/telescope-fzf-native.nvim"))
-end
+if vim.fn.executable("make") == 1 then table.insert(telescope_plugins, gh("nvim-telescope/telescope-fzf-native.nvim")) end
 
 -- NOTE: You can install multiple plugins at once
 vim.pack.add(telescope_plugins)
 
 -- See `:help telescope` and `:help telescope.setup()`
 require("telescope").setup({
-	-- You can put your default mappings / updates / etc. in here
-	--  All the info you're looking for is in `:help telescope.setup()`
-	--
-	-- defaults = {
-	--   mappings = {
-	--     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-	--   },
-	-- },
-	-- pickers = {}
-	extensions = {
-		["ui-select"] = { require("telescope.themes").get_dropdown() },
-	},
-	defaults = {
-		file_ignore_patterns = {
-			".git/",
-			"node_modules/",
-			"build/",
-			"dist/",
-			"bin/",
-			"obj/",
-		},
-	},
-	pickers = {
-		find_files = {
-			hidden = true,
-		},
-	},
+  -- You can put your default mappings / updates / etc. in here
+  --  All the info you're looking for is in `:help telescope.setup()`
+  --
+  -- defaults = {
+  --   mappings = {
+  --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
+  --   },
+  -- },
+  -- pickers = {}
+  extensions = {
+    ["ui-select"] = { require("telescope.themes").get_dropdown() },
+  },
+  defaults = {
+    layout_strategy = "vertical",
+    file_ignore_patterns = {
+      ".git/",
+      "node_modules/",
+      "build/",
+      "dist/",
+      "bin/",
+      "obj/",
+    },
+  },
+  pickers = {
+    find_files = {
+      hidden = true,
+    },
+  },
 })
 
 -- Enable Telescope extensions if they are installed
@@ -92,47 +89,45 @@ vim.keymap.set({ "n", "v" }, "<leader>sw", builtin.grep_string, { desc = "[S]ear
 -- Add Telescope-based LSP pickers when an LSP attaches to a buffer.
 -- If you later switch picker plugins, this is where to update these mappings.
 vim.api.nvim_create_autocmd("LspAttach", {
-	group = vim.api.nvim_create_augroup("telescope-lsp-attach", { clear = true }),
-	callback = function(event)
-		local buf = event.buf
+  group = vim.api.nvim_create_augroup("telescope-lsp-attach", { clear = true }),
+  callback = function(event)
+    local buf = event.buf
 
-		-- To jump back, press <C-t>.
-		-- vim.keymap.set("n", "gd", builtin.lsp_definitions, { buffer = buf, desc = "[G]oto [D]efinition" })
-		-- vim.keymap.set("n", "gr", builtin.lsp_references, { buffer = buf, desc = "[G]oto [R]eferences" })
-		-- vim.keymap.set("n", "gI", builtin.lsp_implementations, { buffer = buf, desc = "[G]oto [I]mplementation" })
-		-- vim.keymap.set("n", "gt", builtin.lsp_type_definitions, { buffer = buf, desc = "[G]oto [T]ype Definition" })
+    -- To jump back, press <C-t>.
+    -- vim.keymap.set("n", "gd", builtin.lsp_definitions, { buffer = buf, desc = "[G]oto [D]efinition" })
+    -- vim.keymap.set("n", "gr", builtin.lsp_references, { buffer = buf, desc = "[G]oto [R]eferences" })
+    -- vim.keymap.set("n", "gI", builtin.lsp_implementations, { buffer = buf, desc = "[G]oto [I]mplementation" })
+    -- vim.keymap.set("n", "gt", builtin.lsp_type_definitions, { buffer = buf, desc = "[G]oto [T]ype Definition" })
 
-		-- Fuzzy find all the symbols in your current document.
-		vim.keymap.set("n", "gO", builtin.lsp_document_symbols, { buffer = buf, desc = "Open Document Symbols" })
-		-- Fuzzy find all the symbols in your current workspace.
-		vim.keymap.set(
-			"n",
-			"gW",
-			builtin.lsp_dynamic_workspace_symbols,
-			{ buffer = buf, desc = "Open Workspace Symbols" }
-		)
-	end,
+    -- Fuzzy find all the symbols in your current document.
+    vim.keymap.set("n", "gO", builtin.lsp_document_symbols, { buffer = buf, desc = "Open Document Symbols" })
+    -- Fuzzy find all the symbols in your current workspace.
+    vim.keymap.set("n", "gW", builtin.lsp_dynamic_workspace_symbols, { buffer = buf, desc = "Open Workspace Symbols" })
+  end,
 })
 
 vim.keymap.set("n", "<leader>sw", function()
-	local word = vim.fn.expand("<cword>")
-	builtin.grep_string({ search = word })
+  local word = vim.fn.expand("<cword>")
+  builtin.grep_string({ search = word })
 end, { desc = "[S]search [w]ord under cursor" })
 vim.keymap.set("n", "<leader>sW", function()
-	local word = vim.fn.expand("<cWORD>")
-	builtin.grep_string({ search = word })
+  local word = vim.fn.expand("<cWORD>")
+  builtin.grep_string({ search = word })
 end, { desc = "[S]earch [W]ORD under cursor" })
 
 -- It's also possible to pass additional configuration options.
 --  See `:help telescope.builtin.live_grep()` for information about particular keys
-vim.keymap.set("n", "<leader>s/", function()
-	builtin.live_grep({
-		grep_open_files = true,
-		prompt_title = "Live Grep in Open Files",
-	})
-end, { desc = "[S]earch [/] in Open Files" })
+vim.keymap.set(
+  "n",
+  "<leader>s/",
+  function()
+    builtin.live_grep({
+      grep_open_files = true,
+      prompt_title = "Live Grep in Open Files",
+    })
+  end,
+  { desc = "[S]earch [/] in Open Files" }
+)
 
 -- Shortcut for searching your Neovim configuration files
-vim.keymap.set("n", "<leader>sn", function()
-	builtin.find_files({ cwd = vim.fn.stdpath("config"), follow = true })
-end, { desc = "[S]earch [N]eovim files" })
+vim.keymap.set("n", "<leader>sn", function() builtin.find_files({ cwd = vim.fn.stdpath("config"), follow = true }) end, { desc = "[S]earch [N]eovim files" })

@@ -9,26 +9,16 @@ vim.keymap.set("n", "gh", "<cmd>diffget //3<CR>", { desc = "Diffget merge (their
 
 local augroup = vim.api.nvim_create_augroup("mcaragheorghe_fugitive", {})
 vim.api.nvim_create_autocmd("FileType", {
-	group = augroup,
-	pattern = "fugitive",
-	callback = function()
-		local bufnr = vim.api.nvim_get_current_buf()
-		local opts = { buffer = bufnr, remap = false }
+  group = augroup,
+  pattern = "fugitive",
+  callback = function()
+    local bufnr = vim.api.nvim_get_current_buf()
+    local opts = { buffer = bufnr, remap = false }
 
-		vim.keymap.set("n", "<leader>p", function()
-			vim.cmd.Git("push")
-		end, vim.tbl_extend("force", opts, { desc = "Git push" }))
+    vim.keymap.set("n", "<leader>p", function() vim.cmd.Git("push") end, vim.tbl_extend("force", opts, { desc = "Git push" }))
 
-		vim.keymap.set("n", "<leader>P", function()
-			vim.cmd.Git({ "pull", "--rebase" })
-		end, vim.tbl_extend("force", opts, { desc = "Git pull --rebase" }))
+    vim.keymap.set("n", "<leader>P", function() vim.cmd.Git({ "pull", "--rebase" }) end, vim.tbl_extend("force", opts, { desc = "Git pull --rebase" }))
 
-		vim.keymap.set(
-			"n",
-			"<leader>t",
-			":Git push -u origin ",
-			vim.tbl_extend("force", opts, { desc = "Git push -u origin ..." })
-		)
-	end,
+    vim.keymap.set("n", "<leader>t", ":Git push -u origin ", vim.tbl_extend("force", opts, { desc = "Git push -u origin ..." }))
+  end,
 })
-

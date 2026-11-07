@@ -7,25 +7,25 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- Diagnostic Config & Keymaps
 --  See `:help vim.diagnostic.Opts`
 vim.diagnostic.config({
-	update_in_insert = false,
-	severity_sort = true,
-	float = { border = "rounded", source = "if_many" },
-	underline = { severity = { min = vim.diagnostic.severity.WARN } },
+  update_in_insert = false,
+  severity_sort = true,
+  float = { border = "rounded", source = "if_many" },
+  underline = { severity = { min = vim.diagnostic.severity.WARN } },
 
-	-- Can switch between these as you prefer
-	virtual_text = true, -- Text shows up at the end of the line
-	virtual_lines = false, -- Text shows up underneath the line, with virtual lines
+  -- Can switch between these as you prefer
+  virtual_text = true, -- Text shows up at the end of the line
+  virtual_lines = false, -- Text shows up underneath the line, with virtual lines
 
-	-- Auto open the float, so you can easily read the errors when jumping with `[d` and `]d`
-	jump = {
-		on_jump = function(_, bufnr)
-			vim.diagnostic.open_float({
-				bufnr = bufnr,
-				scope = "cursor",
-				focus = false,
-			})
-		end,
-	},
+  -- Auto open the float, so you can easily read the errors when jumping with `[d` and `]d`
+  jump = {
+    on_jump = function(_, bufnr)
+      vim.diagnostic.open_float({
+        bufnr = bufnr,
+        scope = "cursor",
+        focus = false,
+      })
+    end,
+  },
 })
 
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
@@ -38,8 +38,7 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
--- Go to explorer
-vim.keymap.set("n", "<leader>ge", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>ge", vim.cmd.Ex, { desc = "Go to Explorer" })
 
 -- Use J and K to move visual blocks up and down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")

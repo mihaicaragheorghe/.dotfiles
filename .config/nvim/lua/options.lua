@@ -12,9 +12,7 @@ vim.g.have_nerd_font = true
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  See `:help 'clipboard'`
-vim.schedule(function()
-	vim.o.clipboard = "unnamedplus"
-end)
+vim.schedule(function() vim.o.clipboard = "unnamedplus" end)
 
 -- [[ Setting options ]]
 --  See `:help vim.o`
